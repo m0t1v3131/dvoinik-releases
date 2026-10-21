@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Двойник — два аккаунта банка на одном Android</title>
+<meta name="description" content="Второе пространство на Android: вторые копии Т-Банка, ВТБ и других приложений для второго аккаунта.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='22' fill='%232E7D32'/><rect x='12' y='15' width='16' height='20' fill='white'/><rect x='20' y='12' width='16' height='20' fill='%23FFEB3B'/></svg>">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Roboto,sans-serif;color:#1c1c1c;background:#f4f7f4;line-height:1.5}
+  main{max-width:560px;margin:0 auto;padding:40px 20px 60px}
+  .logo{width:72px;height:72px}
+  h1{font-size:34px;margin:16px 0 8px}
+  .lead{font-size:18px;color:#444;margin:0 0 28px}
+  .btn{display:block;text-align:center;background:#2E7D32;color:#fff;text-decoration:none;font-size:19px;font-weight:600;padding:18px;border-radius:14px}
+  .btn:active{background:#1b5e20}
+  .ver{text-align:center;color:#777;font-size:14px;margin:10px 0 36px}
+  h2{font-size:20px;margin:28px 0 10px}
+  ol{padding-left:22px;margin:0}
+  li{margin-bottom:10px}
+  .card{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .note{font-size:14px;color:#666;margin-top:28px}
+</style>
+</head>
+<body>
+<main>
+  <svg class="logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#2E7D32"/><rect x="12" y="15" width="16" height="20" fill="#fff"/><rect x="20" y="12" width="16" height="20" fill="#FFEB3B"/></svg>
+  <h1>Двойник</h1>
+  <p class="lead">Два аккаунта Т-Банка, ВТБ и любых других приложений на одном Android-телефоне.</p>
+
+  <a class="btn" href="https://github.com/m0t1v3131/dvoinik-releases/releases/latest/download/Dvoinik.apk">Скачать для Android</a>
+  <div class="ver" id="ver">Бесплатно · Android 9 и новее</div>
+
+  <div class="card">
+    <h2 style="margin-top:0">Как пользоваться</h2>
+    <ol>
+      <li>Скачайте и установите файл. Если телефон спросит про неизвестный источник — разрешите.</li>
+      <li>Откройте «Двойник» и нажмите «Создать второе пространство», согласитесь в окне Android.</li>
+      <li>Нажмите «Добавить» у нужного банка. Его копия со значком портфеля появится в меню — войдите в ней во второй аккаунт.</li>
+    </ol>
+  </div>
+
+  <p class="note">Приложение само сообщает о новых версиях и обновляется в одно нажатие. Банк должен уже стоять на телефоне.</p>
+</main>
+<script>
+fetch('https://api.github.com/repos/m0t1v3131/dvoinik-releases/releases/latest').then(r=>r.json()).then(j=>{
+  if(j.name) document.getElementById('ver').textContent='Версия '+j.name+' · бесплатно · Android 9 и новее';
+}).catch(()=>{});
+</script>
+</body>
+</html>
