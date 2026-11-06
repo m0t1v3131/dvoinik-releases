@@ -50,11 +50,13 @@
   <p class="note">Приложение само сообщает о новых версиях и обновляется в одно нажатие. Банк должен уже стоять на телефоне.</p>
 </main>
 <script>
+const v=document.getElementById('ver'),show=n=>{v.textContent='Версия '+n+' · бесплатно · Android 9 и новее'};
+let last;try{last=localStorage.getItem('ver');if(last)show(last)}catch(e){}
 fetch('https://api.github.com/repos/m0t1v3131/dvoinik-releases/releases/latest').then(r=>r.json()).then(j=>{
-  if(!j.name) return;
-  const v=document.getElementById('ver');
+  if(!j.name||j.name===last) return;
+  try{localStorage.setItem('ver',j.name)}catch(e){}
   v.style.opacity=0;
-  setTimeout(()=>{v.textContent='Версия '+j.name+' · бесплатно · Android 9 и новее';v.style.opacity=1},150);
+  setTimeout(()=>{show(j.name);v.style.opacity=1},150);
 }).catch(()=>{});
 </script>
 </body>
